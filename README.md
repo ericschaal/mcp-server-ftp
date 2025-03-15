@@ -77,6 +77,17 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json`:
 }
 ```
 
+## Troubleshooting Windows Build Issues
+
+If you encounter build issues on Windows:
+
+1. Make sure Node.js and npm are properly installed
+2. Try running the TypeScript compiler directly: `npx tsc`
+3. If you still have issues, you can use the pre-compiled files in the `build` directory by running:
+   ```
+   node path\to\mcp-server-ftp\build\index.js
+   ```
+
 ## Configuration Options
 
 | Environment Variable | Description | Default |
