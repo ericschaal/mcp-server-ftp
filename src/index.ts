@@ -36,7 +36,7 @@ server.tool(
       // Format the output
       const formatted = listing.map((item) => 
         `${item.type === "directory" ? "[DIR]" : "[FILE]"} ${item.name} ${item.type === "file" ? `(${formatSize(item.size)})` : ""} - ${item.modifiedDate}`
-      ).join("\\n");
+      ).join("\n");
       
       const summary = `Total: ${listing.length} items (${listing.filter(i => i.type === "directory").length} directories, ${listing.filter(i => i.type === "file").length} files)`;
       
@@ -44,7 +44,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `Directory listing for: ${remotePath}\\n\\n${formatted}\\n\\n${summary}`
+            text: `Directory listing for: ${remotePath}\n\n${formatted}\n\n${summary}`
           }
         ]
       };
@@ -77,7 +77,7 @@ server.tool(
         content: [
           {
             type: "text",
-            text: `File content of ${remotePath}:\\n\\n${content}`
+            text: `File content of ${remotePath}:\n\n${content}`
           }
         ]
       };
