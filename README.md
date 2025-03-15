@@ -19,6 +19,7 @@ This Model Context Protocol (MCP) server provides tools for interacting with FTP
 
 ### Building from Source
 
+#### Linux/macOS
 ```bash
 # Clone the repository
 git clone https://github.com/alxspiker/mcp-server-ftp.git
@@ -30,6 +31,18 @@ npm install
 # Build the project
 npm run build
 ```
+
+#### Windows
+```bash
+# Clone the repository
+git clone https://github.com/alxspiker/mcp-server-ftp.git
+cd mcp-server-ftp
+
+# Run the Windows build helper script
+build-windows.bat
+```
+
+The `build-windows.bat` script handles dependency installation and building on Windows systems, with fallback options if the TypeScript compiler has issues.
 
 ## Configuration
 
@@ -81,9 +94,10 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json`:
 
 If you encounter build issues on Windows:
 
-1. Make sure Node.js and npm are properly installed
-2. Try running the TypeScript compiler directly: `npx tsc`
-3. If you still have issues, you can use the pre-compiled files in the `build` directory by running:
+1. Use the provided `build-windows.bat` script which handles common build issues
+2. Make sure Node.js and npm are properly installed
+3. Try running the TypeScript compiler directly: `npx tsc`
+4. If you still have issues, you can use the pre-compiled files in the `build` directory by running:
    ```
    node path\to\mcp-server-ftp\build\index.js
    ```
