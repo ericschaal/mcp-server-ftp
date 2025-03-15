@@ -8,7 +8,7 @@
     "mcp-server-ftp": "./build/index.js"
   },
   "scripts": {
-    "build": "tsc && chmod +x build/index.js",
+    "build": "tsc",
     "start": "node build/index.js",
     "dev": "npm run build && npm start",
     "prepublishOnly": "npm run build"
