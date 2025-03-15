@@ -17,10 +17,18 @@ This Model Context Protocol (MCP) server provides tools for interacting with FTP
 - Node.js 16 or higher
 - Claude for Desktop (or other MCP-compatible client)
 
-### NPM Installation
+### Building from Source
 
 ```bash
-npm install -g mcp-server-ftp
+# Clone the repository
+git clone https://github.com/alxspiker/mcp-server-ftp.git
+cd mcp-server-ftp
+
+# Install dependencies
+npm install
+
+# Build the project
+npm run build
 ```
 
 ## Configuration
@@ -34,8 +42,8 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
 {
   "mcpServers": {
     "ftp-server": {
-      "command": "npx",
-      "args": ["-y", "mcp-server-ftp"],
+      "command": "node",
+      "args": ["/absolute/path/to/mcp-server-ftp/build/index.js"],
       "env": {
         "FTP_HOST": "ftp.example.com",
         "FTP_PORT": "21",
@@ -55,8 +63,8 @@ Edit `%APPDATA%\Claude\claude_desktop_config.json`:
 {
   "mcpServers": {
     "ftp-server": {
-      "command": "npx",
-      "args": ["-y", "mcp-server-ftp"],
+      "command": "node",
+      "args": ["C:\\path\\to\\mcp-server-ftp\\build\\index.js"],
       "env": {
         "FTP_HOST": "ftp.example.com",
         "FTP_PORT": "21",
@@ -100,25 +108,6 @@ After configuring and restarting Claude for Desktop, you can use natural languag
 | `create-directory` | Create a new directory on the FTP server |
 | `delete-file` | Delete a file from the FTP server |
 | `delete-directory` | Delete a directory from the FTP server |
-
-## Building from Source
-
-If you want to build the project from source:
-
-```bash
-# Clone the repository
-git clone https://github.com/alxspiker/mcp-server-ftp.git
-cd mcp-server-ftp
-
-# Install dependencies
-npm install
-
-# Build the project
-npm run build
-
-# Run the server (for testing)
-npm start
-```
 
 ## Security Considerations
 
