@@ -71,13 +71,13 @@ server.tool(
   },
   async ({ remotePath }) => {
     try {
-      const { content } = await ftpClient.downloadFile(remotePath);
+      const { filePath } = await ftpClient.downloadFile(remotePath);
       
       return {
         content: [
           {
             type: "text",
-            text: `File content of ${remotePath}:\n\n${content}`
+            text: `Local file path of ${remotePath}:\n\n${filePath}`
           }
         ]
       };

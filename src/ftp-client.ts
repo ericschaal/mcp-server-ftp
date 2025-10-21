@@ -69,7 +69,7 @@ export class FtpClient {
     }
   }
 
-  async downloadFile(remotePath: string): Promise<{filePath: string, content: string}> {
+  async downloadFile(remotePath: string): Promise<{filePath: string}> {
     try {
       await this.connect();
       
@@ -78,15 +78,9 @@ export class FtpClient {
       
       // Download the file
       await this.client.downloadTo(tempFilePath, remotePath);
-      
-      // Read the file content
-      const content = fs.readFileSync(tempFilePath, 'utf8');
-      
       await this.disconnect();
-      
       return {
         filePath: tempFilePath,
-        content
       };
     } catch (error) {
       console.error("Download file error:", error);
