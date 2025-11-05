@@ -96,137 +96,137 @@ server.tool(
 );
 
 // Register upload-file tool
-server.tool(
-  "upload-file",
-  "Upload a file to the FTP server",
-  {
-    remotePath: z.string().describe("Destination path on the FTP server"),
-    content: z.string().describe("Content to upload to the file"),
-  },
-  async ({ remotePath, content }) => {
-    try {
-      await ftpClient.uploadFile(remotePath, content);
-      
-      return {
-        content: [
-          {
-            type: "text",
-            text: `File successfully uploaded to ${remotePath}`
-          }
-        ]
-      };
-    } catch (error) {
-      return {
-        isError: true,
-        content: [
-          {
-            type: "text",
-            text: `Error uploading file: ${error instanceof Error ? error.message : String(error)}`
-          }
-        ]
-      };
-    }
-  }
-);
+// server.tool(
+//   "upload-file",
+//   "Upload a file to the FTP server",
+//   {
+//     remotePath: z.string().describe("Destination path on the FTP server"),
+//     content: z.string().describe("Content to upload to the file"),
+//   },
+//   async ({ remotePath, content }) => {
+//     try {
+//       await ftpClient.uploadFile(remotePath, content);
+//
+//       return {
+//         content: [
+//           {
+//             type: "text",
+//             text: `File successfully uploaded to ${remotePath}`
+//           }
+//         ]
+//       };
+//     } catch (error) {
+//       return {
+//         isError: true,
+//         content: [
+//           {
+//             type: "text",
+//             text: `Error uploading file: ${error instanceof Error ? error.message : String(error)}`
+//           }
+//         ]
+//       };
+//     }
+//   }
+// );
 
 // Register create-directory tool
-server.tool(
-  "create-directory",
-  "Create a new directory on the FTP server",
-  {
-    remotePath: z.string().describe("Path of the directory to create"),
-  },
-  async ({ remotePath }) => {
-    try {
-      await ftpClient.createDirectory(remotePath);
-      
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Directory successfully created at ${remotePath}`
-          }
-        ]
-      };
-    } catch (error) {
-      return {
-        isError: true,
-        content: [
-          {
-            type: "text",
-            text: `Error creating directory: ${error instanceof Error ? error.message : String(error)}`
-          }
-        ]
-      };
-    }
-  }
-);
+// server.tool(
+//   "create-directory",
+//   "Create a new directory on the FTP server",
+//   {
+//     remotePath: z.string().describe("Path of the directory to create"),
+//   },
+//   async ({ remotePath }) => {
+//     try {
+//       await ftpClient.createDirectory(remotePath);
+//
+//       return {
+//         content: [
+//           {
+//             type: "text",
+//             text: `Directory successfully created at ${remotePath}`
+//           }
+//         ]
+//       };
+//     } catch (error) {
+//       return {
+//         isError: true,
+//         content: [
+//           {
+//             type: "text",
+//             text: `Error creating directory: ${error instanceof Error ? error.message : String(error)}`
+//           }
+//         ]
+//       };
+//     }
+//   }
+// );
 
 // Register delete-file tool
-server.tool(
-  "delete-file",
-  "Delete a file from the FTP server",
-  {
-    remotePath: z.string().describe("Path of the file to delete"),
-  },
-  async ({ remotePath }) => {
-    try {
-      await ftpClient.deleteFile(remotePath);
-      
-      return {
-        content: [
-          {
-            type: "text",
-            text: `File successfully deleted from ${remotePath}`
-          }
-        ]
-      };
-    } catch (error) {
-      return {
-        isError: true,
-        content: [
-          {
-            type: "text",
-            text: `Error deleting file: ${error instanceof Error ? error.message : String(error)}`
-          }
-        ]
-      };
-    }
-  }
-);
+// server.tool(
+//   "delete-file",
+//   "Delete a file from the FTP server",
+//   {
+//     remotePath: z.string().describe("Path of the file to delete"),
+//   },
+//   async ({ remotePath }) => {
+//     try {
+//       await ftpClient.deleteFile(remotePath);
+//
+//       return {
+//         content: [
+//           {
+//             type: "text",
+//             text: `File successfully deleted from ${remotePath}`
+//           }
+//         ]
+//       };
+//     } catch (error) {
+//       return {
+//         isError: true,
+//         content: [
+//           {
+//             type: "text",
+//             text: `Error deleting file: ${error instanceof Error ? error.message : String(error)}`
+//           }
+//         ]
+//       };
+//     }
+//   }
+// );
 
 // Register delete-directory tool
-server.tool(
-  "delete-directory",
-  "Delete a directory from the FTP server",
-  {
-    remotePath: z.string().describe("Path of the directory to delete"),
-  },
-  async ({ remotePath }) => {
-    try {
-      await ftpClient.deleteDirectory(remotePath);
-      
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Directory successfully deleted from ${remotePath}`
-          }
-        ]
-      };
-    } catch (error) {
-      return {
-        isError: true,
-        content: [
-          {
-            type: "text",
-            text: `Error deleting directory: ${error instanceof Error ? error.message : String(error)}`
-          }
-        ]
-      };
-    }
-  }
-);
+// server.tool(
+//   "delete-directory",
+//   "Delete a directory from the FTP server",
+//   {
+//     remotePath: z.string().describe("Path of the directory to delete"),
+//   },
+//   async ({ remotePath }) => {
+//     try {
+//       await ftpClient.deleteDirectory(remotePath);
+//
+//       return {
+//         content: [
+//           {
+//             type: "text",
+//             text: `Directory successfully deleted from ${remotePath}`
+//           }
+//         ]
+//       };
+//     } catch (error) {
+//       return {
+//         isError: true,
+//         content: [
+//           {
+//             type: "text",
+//             text: `Error deleting directory: ${error instanceof Error ? error.message : String(error)}`
+//           }
+//         ]
+//       };
+//     }
+//   }
+// );
 
 // Helper function to format file sizes
 function formatSize(bytes: number): string {
